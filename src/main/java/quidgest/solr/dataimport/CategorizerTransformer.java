@@ -28,7 +28,7 @@ public class CategorizerTransformer extends Transformer {
 		String directory = ((String) row.get("fileDirReplaced"));
 		List<String> arr = new ArrayList<String>();
 		Set<String> usedPaths = new HashSet<String>();
-		for(Tuple t : rules) {
+		for (Tuple t : rules) {
 			if (!usedPaths.contains(t.path)
 					&& t.path.length() <= directory.length()
 					&& directory.startsWith(t.path)) {
@@ -81,7 +81,7 @@ public class CategorizerTransformer extends Transformer {
 	}
 
 	private String[] stripExtraWhitespaces(String[] splits) {
-		for(int i = 0; i < splits.length; i++) 
+		for (int i = 0; i < splits.length; i++)
 			splits[i] = splits[i].trim();
 
 		return splits;
