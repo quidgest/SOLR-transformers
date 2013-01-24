@@ -19,7 +19,7 @@ public class HashFilter extends Transformer {
 		return row;
 	}
 
-	private String calcularHash(String body) {
+	private static String calcularHash(String body) {
 		 try {
 			MessageDigest md = MessageDigest.getInstance("SHA");
 			byte[] hash = new byte[0];
@@ -27,7 +27,12 @@ public class HashFilter extends Transformer {
 				hash = md.digest(body.getBytes());
 			}
 			
-			return new String(hash);
+			StringBuilder sb = new StringBuilder();
+		    for (byte b : hash) {
+		        sb.append(String.format("%02X", b));
+		    }
+		    
+			return sb.toString();
 		 } catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -35,5 +40,4 @@ public class HashFilter extends Transformer {
 		 
 		 return "";
 	}
-
 }
