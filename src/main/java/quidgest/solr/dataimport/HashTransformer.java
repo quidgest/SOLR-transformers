@@ -7,7 +7,7 @@ import java.util.Map;
 import org.apache.solr.handler.dataimport.Context;
 import org.apache.solr.handler.dataimport.Transformer;
 
-public class HashFilter extends Transformer {
+public class HashTransformer extends Transformer {
 	
 	@Override
 	public Object transformRow(Map<String, Object> row, Context arg1) {
